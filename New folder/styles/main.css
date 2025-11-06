@@ -1,0 +1,124 @@
+:root{
+  --savanna-ochre: #CFA05A;   /* warm ochre */
+  --acacia-green: #2E6B3A;   /* deep green */
+  --sunset-orange:#D9643B;   /* accent */
+  --charcoal: #2B2B2B;       /* text */
+  --muted: #777;
+  --bg: #FCFBF8;
+  --card: #FFFFFF;
+  --radius: 10px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;color:var(--charcoal);background:var(--bg);-webkit-font-smoothing:antialiased}
+.container{max-width:1100px;margin:0 auto;padding:1rem 1.25rem}
+
+/* Header */
+.site-header{background:linear-gradient(90deg, rgba(47,62,40,0.03), rgba(207,160,90,0.02));backdrop-filter:blur(2px);position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(0,0,0,0.04)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0.8rem 0}
+.brand{display:flex;align-items:center;gap:0.75rem;text-decoration:none}
+.brand-logo{display:block;width:56px;height:56px;object-fit:contain;border-radius:8px}
+.brand-text{line-height:1}
+.brand .logo{font-weight:700;color:var(--acacia-green);font-size:1rem}
+.brand .tag{display:block;font-size:0.72rem;color:var(--muted)}
+
+/* small tweak to header CTA layout */
+.header-ctas{display:flex;align-items:center;gap:0.6rem}
+.nav{display:flex;gap:1rem}
+.nav a{color:var(--charcoal);text-decoration:none;font-weight:600;padding:0.25rem 0.5rem;border-radius:6px}
+.nav a:hover{background:rgba(47,107,58,0.06)}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid rgba(0,0,0,0.04)}
+.hero-bg{position:absolute;inset:0;background-image:linear-gradient(to bottom right, rgba(47,107,58,0.15), rgba(217,140,77,0.08)), url('../assets/images/serengeti.jpg');background-size:cover;background-position:center;filter:contrast(1.02) saturate(1.05)}
+.hero::after{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.04));content:""}
+.hero-content{position:relative;padding:3.25rem 1.25rem;display:grid;gap:1rem;color:var(--charcoal)}
+.hero h1{font-size:clamp(1.6rem, 3.5vw, 2.6rem);margin:0;color:#081010}
+.lead{max-width:70ch;color:rgba(11,11,11,0.8)}
+.hero-ctas{display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:.5rem}
+.btn{display:inline-block;padding:0.6rem 0.9rem;border-radius:8px;text-decoration:none;font-weight:700;cursor:pointer;border:none}
+.btn-primary{background:var(--acacia-green);color:#fff}
+.btn-outline{background:transparent;border:2px solid rgba(11,11,11,0.08);color:var(--charcoal)}
+.btn-ghost{background:transparent;color:var(--charcoal);border:none}
+.btn-small{padding:0.45rem 0.6rem;border-radius:6px;background:var(--savanna-ochre);color:#fff}
+
+/* ...existing code... */
+
+/* Hero: full-viewport background cover, simple and responsive */
+.hero{
+  position:relative;
+  min-height:100vh;                 /* cover whole viewport */
+  display:flex;
+  align-items:center;               /* center content vertically */
+  color:var(--card);                /* content on top of image */
+  overflow:hidden;
+  background-image:
+    linear-gradient(180deg, rgba(4,8,6,0.28), rgba(4,8,6,0.12)), /* subtle overlay for contrast */
+    url('../assets/images/kilimanaro.jpg');                /* place your hero image here */
+  background-size:cover;            /* ensures full coverage */
+  background-position:center center;
+  background-repeat:no-repeat;
+  border-bottom:1px solid rgba(0,0,0,0.04);
+}
+
+/* keep hero content readable and constrained */
+.hero-content{
+  position:relative;
+  z-index:2;
+  padding:3.5rem 1.25rem;
+  max-width:980px;
+  color:#fff;                       /* high contrast on overlay */
+  text-shadow:0 6px 18px rgba(0,0,0,0.45);
+}
+
+.hero-title{font-size:clamp(1.8rem,4.2vw,3rem);margin:0 0 .6rem}
+.lead{max-width:66ch;color:rgba(255,255,255,0.92);margin-bottom:1rem}
+.hero-highlights{display:flex;gap:0.75rem;list-style:none;padding:0;margin:1rem 0 0;color:rgba(255,255,255,0.85);flex-wrap:wrap}
+.hero-highlights li{background:rgba(0,0,0,0.18);padding:0.45rem 0.6rem;border-radius:6px;font-size:0.95rem}
+
+/* remove any leftover loader styles if present */
+.hero-placeholder,
+.hero-picture,
+.hero-image{display:none !important}
+
+/* ...existing code... */
+
+/* Hero highlights */
+.hero-highlights{display:flex;gap:1rem;list-style:none;padding:0;margin:1rem 0 0;color:var(--muted);flex-wrap:wrap}
+.hero-highlights li{background:rgba(11,11,11,0.03);padding:0.45rem 0.6rem;border-radius:6px;font-size:0.95rem}
+
+/* Features and cards */
+.features{padding:2.25rem 1.25rem}
+.feature-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1rem}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:0 6px 18px rgba(14,14,14,0.06);overflow:hidden}
+.card img{width:100%;height:160px;object-fit:cover;display:block}
+.card h3{margin:0.75rem 1rem 0 1rem}
+.card p{margin:0.5rem 1rem 1rem 1rem;color:var(--muted);font-size:0.95rem}
+
+/* Tours, contact */
+.tours{padding:2rem 1.25rem}
+.tours-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.tour{background:linear-gradient(180deg,#fff, #fff);padding:1rem;border-radius:8px;border:1px solid rgba(0,0,0,0.04)}
+.contact{padding:2rem 1.25rem}
+.contact-form{display:grid;gap:0.6rem}
+.form-row{display:flex;gap:0.6rem}
+.form-row input{flex:1;padding:0.6rem;border:1px solid rgba(0,0,0,0.08);border-radius:8px}
+textarea{padding:0.6rem;border-radius:8px;border:1px solid rgba(0,0,0,0.08)}
+.form-actions{display:flex;gap:0.6rem;align-items:center}
+
+/* Footer */
+.site-footer{background:linear-gradient(180deg, rgba(47,62,40,0.03), transparent);padding:1.5rem 0;border-top:1px solid rgba(0,0,0,0.04)}
+.footer-inner{display:flex;justify-content:space-between;gap:1rem;align-items:center}
+.footer-links a{display:block;color:var(--muted);text-decoration:none;font-size:0.95rem}
+
+/* Small screens */
+@media (max-width:800px){
+  .nav{display:none}
+  .mobile-menu{display:inline-block}
+  .header-inner{gap:0.5rem}
+  .hero-content{padding:2rem 1rem}
+  .footer-inner{flex-direction:column;align-items:flex-start;gap:0.5rem}
+}
+
+/* Accessibility tweaks */
+a:focus, button:focus, input:focus, textarea:focus{outline:3px solid rgba(217,100,59,0.15);outline-offset:2px}
